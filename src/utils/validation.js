@@ -13,4 +13,9 @@ const validate=(req)=>{
             throw new Error("Invalid credentials");
         }
 }
-module.exports=validate;
+const validateProfile=(req)=>{
+    const allowedUpdates=["firstName","lastName","emailId","age","gender"];
+     const isEditAllowed=Object.keys(req.body).Every((key)=>allowedUpdates.includes(key));
+     return isEditAllowed;
+}
+module.exports={validate,validateProfile};

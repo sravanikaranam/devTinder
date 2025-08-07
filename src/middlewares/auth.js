@@ -13,7 +13,7 @@ const userAuthentication= async (req,res,next)=>{
             throw new Error("invalid user");
         }
         req.user=user;
-        console.log("user found");
+       
         next();
     }catch(err){
         res.status(400).send(err.message);
